@@ -99,6 +99,42 @@ public class MyLinkedList {
         return head;
     }
 
+    public static Node removeAtIndex(Node head, int index) {
+        if (head == null || index < 0) {
+            return null;
+        }
+
+        if (index == 0) {
+            return removeAtFirst(head);
+        }
+
+        Node currNode = head;
+        Node prevNode = null;
+        int count = 0;
+        while (currNode != null) {
+            if (count == index) {
+                // Remove node
+                prevNode.next = currNode.next;
+            }
+            prevNode = currNode;
+            currNode = currNode.next;
+            ++count;
+        }
+
+        return head;
+    }
+
+    public static Node reverseLinkedList(Node head) {
+        Node currNode = head;
+        while (currNode != null && currNode.next != null) {
+            Node nextNode = currNode.next;
+            currNode.next = nextNode.next;
+            nextNode.next = head;
+            head = nextNode;
+        }
+        return head;
+    }
+
 
     public static void main(String[] args) {
         Node n1 = new Node(1);
@@ -109,11 +145,7 @@ public class MyLinkedList {
         n2.next = n3;
 
         printLinkedList(n1);
-        n1 = removeAtLast(n1);
-        printLinkedList(n1);
-        n1 = removeAtLast(n1);
-        printLinkedList(n1);
-        n1 = removeAtLast(n1);
+        n1 = reverseLinkedList(n1);
         printLinkedList(n1);
     }
 }
