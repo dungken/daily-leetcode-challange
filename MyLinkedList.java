@@ -124,7 +124,7 @@ public class MyLinkedList {
         return head;
     }
 
-    public static Node reverseLinkedList(Node head) {
+    public static Node reverseLinkedListUsingLoop(Node head) {
         Node currNode = head;
         while (currNode != null && currNode.next != null) {
             Node nextNode = currNode.next;
@@ -135,17 +135,41 @@ public class MyLinkedList {
         return head;
     }
 
+    public static Node reverseLinkedListUsingRecursion(Node head) {
+        // TH co so
+        if (head == null) {
+            return null;
+        }
+
+        Node nextNode = head.next;
+        // TH 1 node
+        if (nextNode == null) {
+            return head;
+        }
+
+        // TH tong quat
+        Node newHead = reverseLinkedListUsingRecursion(nextNode);
+        nextNode.next = head;
+        head.next = null;
+        return newHead;
+    }
+
 
     public static void main(String[] args) {
         Node n1 = new Node(1);
         Node n2 = new Node(2);
         Node n3 = new Node(3);
+        Node n4 = new Node(4);
 
         n1.next = n2;
-        n2.next = n3;
+//        n2.next = n3;
 
         printLinkedList(n1);
-        n1 = reverseLinkedList(n1);
+        n1 = reverseLinkedListUsingRecursion(n1);
         printLinkedList(n1);
+
+        printLinkedList(n4);
+        n4 = reverseLinkedListUsingRecursion(n4);
+        printLinkedList(n4);
     }
 }
