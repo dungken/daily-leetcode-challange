@@ -10,4 +10,5 @@ public class _1662_Check_If_Two_String_Arrays {
         }
         return result1.toString().equals(result2.toString());
     }
-}
+}   
+
