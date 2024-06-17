@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyBST {
     public TreeNode mRoot;
 
@@ -102,5 +105,54 @@ public class MyBST {
         return root;
     }
 
+    public TreeNode searchBST(TreeNode root, int key) {
+        if (root == null)
+            return null;
+
+        if (key < root.value) {
+            return searchBST(root.left, key);
+        } else if (key > root.value) {
+            return searchBST(root.right, key);
+        } else {
+            return root;
+        }
+    }
+    List<Integer> preorderResult = new ArrayList<>();
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if (root == null) {
+            return preorderResult;
+        }
+
+        preorderResult.add(root.value);
+        preorderTraversal(root.left);
+        preorderTraversal(root.right);
+
+        return preorderResult;
+    }
+    List<Integer> inorderResult = new ArrayList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return inorderResult;
+        }
+
+        inorderTraversal(root.left);
+        inorderResult.add(root.value);
+        inorderTraversal(root.right);
+
+        return inorderResult;
+    }
+
+    List<Integer> postorderResult = new ArrayList<>();
+    public List<Integer> postorderTraversal(TreeNode root) {
+        if (root == null) {
+            return postorderResult;
+        }
+
+        postorderTraversal(root.left);
+        postorderTraversal(root.right);
+        postorderResult.add(root.value);
+
+        return postorderResult;
+    }
 
 }
