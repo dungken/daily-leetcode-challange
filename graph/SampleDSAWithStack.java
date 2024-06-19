@@ -37,8 +37,6 @@ public class SampleDSAWithStack {
                     set.add(v);
                 }
             }
-
-            set.add(u);
         }
     }
 }
