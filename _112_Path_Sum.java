@@ -12,6 +12,7 @@ public class _112_Path_Sum {
         if(isLeaf(currNode))
             return currSum == target;
 
+        // Con thuc truy hoi
         boolean resultLeftTraversal = traversal(currNode.left, currSum, target);
         boolean resultRightTraversal = traversal(currNode.right, currSum, target);
         return resultLeftTraversal || resultRightTraversal;

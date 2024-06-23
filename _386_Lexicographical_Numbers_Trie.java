@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class _386_Lexicographical_Numbers {
+public class _386_Lexicographical_Numbers_Trie {
     public class TrieNode {
         public static final int SIZE = 10;
         public TrieNode children[] = new TrieNode[SIZE];

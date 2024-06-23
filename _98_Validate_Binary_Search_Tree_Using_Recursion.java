@@ -1,4 +1,4 @@
-public class _98_Validate_Binary_Search_Tree {
+public class _98_Validate_Binary_Search_Tree_Using_Recursion {
     public class TreeNode {
         int val;
         TreeNode left;

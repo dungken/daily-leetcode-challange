@@ -6,7 +6,7 @@ public class _104_Maximum_Depth_of_Binary_Tree {
         int heightLeftTree = maxDepth(root.left);
         int heightRightTree = maxDepth(root.right);
 
-        int result = Math.max(heightLeftTree, heightRightTree);
+        int result = Math.max(heightLeftTree, heightRightTree) + 1;
         return result;
     }
 }
